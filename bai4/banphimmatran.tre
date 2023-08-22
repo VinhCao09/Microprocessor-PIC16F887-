@@ -1,0 +1,48 @@
+ÀÄbanphimmatran
+   ÀÄMAIN  0/138  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄchoptat  0/86  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄcheck  0/254  Ram=0
+      ³  ³  ÀÄkey_4x4  (Inline)  Ram=3
+      ³  ³     ÀÄ@const705  0/8  Ram=0
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄsangdanpst  0/88  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄtatdantsp  0/69  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄsangdantsp  0/81  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄtatdanpst  0/69  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄsangdichpst  0/69  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄsangdichtsp  0/70  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÃÄsangdich3ledpst  0/69  Ram=5
+      ³  ÃÄcheck  0/254  Ram=0
+      ³  ³  ÀÄ*
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄsangdich3ledtsp  0/69  Ram=5
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄcheck  0/254  Ram=0
+      ³     ÀÄ*
+      ÀÄsangdontsp  0/140  Ram=5
+         ÃÄ@delay_ms1  0/20  Ram=1
+         ÀÄcheck  0/254  Ram=0
+            ÀÄ*

@@ -1,0 +1,135 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-023 i
+024-027 LED
+028-02B a
+02C-02F j
+030-033 LED1
+034-037 mp
+038-03B m
+03C     @TRIS_C
+03D     key_4x4.mp
+03D     @delay_ms1.P1
+03D     choptat.@SCRATCH1
+03D     sangdanpst.@SCRATCH1
+03D     sangdantsp.@SCRATCH1
+03D     tatdanpst.@SCRATCH1
+03D     tatdantsp.@SCRATCH1
+03D     sangdichpst.@SCRATCH1
+03D     sangdichtsp.@SCRATCH1
+03D     sangdich3ledpst.@SCRATCH1
+03D     sangdich3ledtsp.@SCRATCH1
+03D     sangdontsp.@SCRATCH1
+03E     key_4x4.cot
+03E     choptat.@SCRATCH2
+03E     sangdanpst.@SCRATCH2
+03E     sangdantsp.@SCRATCH2
+03E     tatdanpst.@SCRATCH2
+03E     tatdantsp.@SCRATCH2
+03E     sangdichpst.@SCRATCH2
+03E     sangdichtsp.@SCRATCH2
+03E     sangdich3ledpst.@SCRATCH2
+03E     sangdich3ledtsp.@SCRATCH2
+03E     sangdontsp.@SCRATCH2
+03F     key_4x4.@SCRATCH1
+03F     choptat.@SCRATCH3
+03F     sangdanpst.@SCRATCH3
+03F     sangdantsp.@SCRATCH3
+03F     tatdanpst.@SCRATCH3
+03F     tatdantsp.@SCRATCH3
+03F     sangdichpst.@SCRATCH3
+03F     sangdichtsp.@SCRATCH3
+03F     sangdich3ledpst.@SCRATCH3
+03F     sangdich3ledtsp.@SCRATCH3
+03F     sangdontsp.@SCRATCH3
+040     choptat.@SCRATCH4
+040     sangdanpst.@SCRATCH4
+040     sangdantsp.@SCRATCH4
+040     tatdanpst.@SCRATCH4
+040     tatdantsp.@SCRATCH4
+040     sangdichpst.@SCRATCH4
+040     sangdichtsp.@SCRATCH4
+040     sangdich3ledpst.@SCRATCH4
+040     sangdich3ledtsp.@SCRATCH4
+040     sangdontsp.@SCRATCH4
+041     choptat.@SCRATCH5
+041     sangdanpst.@SCRATCH5
+041     sangdantsp.@SCRATCH5
+041     tatdanpst.@SCRATCH5
+041     tatdantsp.@SCRATCH5
+041     sangdichpst.@SCRATCH5
+041     sangdichtsp.@SCRATCH5
+041     sangdich3ledpst.@SCRATCH5
+041     sangdich3ledtsp.@SCRATCH5
+041     sangdontsp.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  maquet.call
+000008  maquet.data
+00000C  @delay_ms1
+000020  key_4x4
+000020  check
+00011E  choptat
+000174  sangdanpst
+0001CC  tatdantsp
+000211  sangdantsp
+000262  tatdanpst
+0002A7  sangdichpst
+0002EC  sangdichtsp
+000332  sangdich3ledpst
+000377  sangdich3ledtsp
+0003BC  sangdontsp
+000448  @cinit1
+000448  MAIN
+000462  @cinit2
+
+Project Directory:
+    D:\processor\bai4\
+
+Project Files:
+    banphimmatran.c                                         [01-Apr-23 11:36  CRC=CC123CB8]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [21-Jan-21 11:32  CRC=461DBE83]
+    TV_PICKIT2_SHIFT_KEY4X4_138.c                           [01-Apr-23 11:35  CRC=98E4238B]
+
+Source signature=43F84251
+Program memory checksum=0000
+Hex file CRC=260C
+
+Units:
+    D:\processor\bai4\banphimmatran (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   banphimmatran.xsym
+    Errors:      banphimmatran.err
+    Ext Symbols: banphimmatran.esym
+    INHX8:       banphimmatran.hex
+    Symbols:     banphimmatran.sym
+    List:        banphimmatran.lst
+    Debug/COFF:  banphimmatran.cof
+    Project:     banphimmatran.ccspjt
+    Call Tree:   banphimmatran.tre
+    Statistics:  banphimmatran.STA
