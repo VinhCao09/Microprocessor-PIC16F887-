@@ -1,0 +1,5 @@
+Compiling D:\processor\bai5\led7doantructiep on 11-Apr-23 at 14:15
+>>> Warning 202 "D:\processor\bai5\led7doantructiep.c" Line 0(0,0): Variable never used:   ma7doan
+      Memory usage:   ROM=12%      RAM=7% - 9%
+      0 Errors,  1 Warnings.
+Build Successful.
