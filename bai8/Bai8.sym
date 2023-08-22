@@ -1,0 +1,120 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+00C.0   TM1IF
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     che_do
+022     T0
+023     GHD
+024-025 bdn1
+026     giay
+027     phut
+028     gio
+029-02A @sprintf_string
+02B     @PSTRINGCN7_710.P1
+02B     lcd_command.a
+02B     @PRINTF_D_710.P1
+02B     MODE_BUTTON.@SCRATCH1
+02B     MODESP.@SCRATCH1
+02B     @PSTRINGC7_710.@SCRATCH1
+02B     MODEGIO.@SCRATCH1
+02B     MODEPHUT.@SCRATCH1
+02B     thoigian.@SCRATCH1
+02C     @PRINTF_D_710.P1
+02C     @PSTRINGC7_710.@SCRATCH2
+02C     @PSTRINGCN7_710.@SCRATCH1
+02D     @PSTRINGC7_710.@SCRATCH3
+02D     @PSTRINGCN7_710.@SCRATCH2
+02D     @PRINTF_D_710.@SCRATCH1
+02E     @PSTRINGC7_710.@SCRATCH4
+02E     @PSTRINGCN7_710.@SCRATCH3
+02E     @PRINTF_D_710.@SCRATCH2
+02F     @PSTRINGCN7_710.@SCRATCH4
+02F     @PRINTF_D_710.@SCRATCH3
+030     @PRINTF_D_710.@SCRATCH4
+031     @DIV88.P1
+031     lcd_data.a
+032     @DIV88.P1
+032     @delay_ms1.P2
+033     @DIV88.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const723.call
+000006  @const731.call
+00000B  @const740.call
+000011  @const742.call
+000015  @const743.call
+000017  @const744.call
+000019  @const746.call
+00001F  @const747.call
+000027  @const748.call
+000030  @const749.call
+000038  @const750.call
+00003F  @delay_ms1
+000053  lcd_command
+000074  lcd_setup
+000086  lcd_data
+0000A7  @PSTRINGC7_710
+0000FD  lcdmode_ten
+000136  MODE_BUTTON
+000154  @DIV88
+000169  thoigian
+00016E  MODEGIO
+0001A3  MODEPHUT
+000273  @PSTRINGCN7_710
+0002CA  @PRINTF_D_710
+000321  DEMSP
+000326  MODESP
+00039E  @cinit1
+00039E  MAIN
+0003BB  @cinit2
+
+Project Directory:
+    D:\processor\bai8\
+
+Project Files:
+    Bai8.c                                                  [01-Apr-23 11:57  CRC=CA83A720]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [21-Jan-21 11:32  CRC=461DBE83]
+    TV_LCD.c                                                [18-Mar-23 22:35  CRC=C41C3692]
+
+Source signature=98D9D2C7
+Program memory checksum=0000
+Hex file CRC=844D
+
+Units:
+    D:\processor\bai8\Bai8 (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   Bai8.xsym
+    Errors:      Bai8.err
+    Ext Symbols: Bai8.esym
+    INHX8:       Bai8.hex
+    Symbols:     Bai8.sym
+    List:        Bai8.lst
+    Debug/COFF:  Bai8.cof
+    Project:     Bai8.ccspjt
+    Call Tree:   Bai8.tre
+    Statistics:  Bai8.STA

@@ -1,0 +1,169 @@
+#include<16f887.h>
+#fuses hs
+#use delay(clock=20M)
+#define     lcd_e       pin_c7
+#define     lcd_rw      pin_c6
+#define     lcd_rs      pin_c5
+#define     output_lcd  output_d
+#include<TV_LCD.c>
+#bit TM1IF =0x0c.0
+int32 i,LED,a,j,LED1;
+signed int8 che_do=0, T0,GHD=0;
+unsigned int16 bdn1=0;
+unsigned int8 giay=0, phut=32, gio=5;
+
+
+//xu ly nut up down
+void MODE_BUTTON()
+{
+   if(input(pin_e2)==0) //phim up
+   {
+      delay_ms(20);
+      if(input(pin_e2)==0)
+      {
+      che_do++;
+      while(input(pin_e2)==0);
+      if (che_do==4) che_do=0;
+      }
+   }
+}
+void MODESP()
+{
+   if(input(pin_e0)==0) //phim up
+   {
+      delay_ms(20);
+      if(input(pin_e0)==0)
+      {
+      GHD++;
+      while(input(pin_e0)==0);
+      if (GHD==100) GHD=0;
+      }
+   }
+   else if(input(pin_e1)==0) //phim down
+   {
+      delay_ms(20);
+      if(input(pin_e1)==0)
+      {
+      GHD--;
+      while(input(pin_e1)==0);
+      if (GHD==-1) GHD=99;
+      }
+   }
+}
+
+void MODEGIO()
+{
+   if(input(pin_e0)==0) //phim up
+   {
+      delay_ms(20);
+      if(input(pin_e0)==0)
+      {
+      gio++;
+      while(input(pin_e0)==0);
+      if (gio==24) gio=0;
+      }
+   }
+   else if(input(pin_e1)==0) //phim down
+   {
+      delay_ms(20);
+      if(input(pin_e1)==0)
+      {
+      gio--;
+      while(input(pin_e1)==0);
+      if (gio==-1) gio=23;
+      }
+   }
+}
+
+void MODEPHUT()
+{
+   if(input(pin_e0)==0) //phim up
+   {
+      delay_ms(20);
+      if(input(pin_e0)==0)
+      {
+      phut++;
+      while(input(pin_e0)==0);
+      if (phut==60) phut=0;
+      }
+   }
+   else if(input(pin_e1)==0) //phim down
+   {
+      delay_ms(20);
+      if(input(pin_e1)==0)
+      {
+      phut--;
+      while(input(pin_e1)==0);
+      if (phut==-1) phut=59;
+      }
+   }
+}
+void DEMSP()
+{
+   MODE_BUTTON();
+   if (che_do==3) MODESP();
+   T0= get_timer0(); // Ðoc ket qua dem ve
+   if(T0>GHD) set_timer0(1); // khong che GHD
+   lcd_command(0x94);
+   printf(lcd_data,"LIMIT: %d ",GHD);
+   lcd_command(0x94+10);
+   printf(lcd_data,"COUNTER:%d ",T0);
+}
+
+void thoigian()
+{
+  if(TM1IF)
+  { 
+  MODE_BUTTON();
+  if (che_do==1) MODEGIO();
+  if (che_do==2) MODEPHUT();
+  set_timer1(3036);
+            bdn1++;
+            TM1IF=0;
+            if(bdn1==10) 
+                {
+                bdn1=0; 
+                giay++;
+                if (giay==60)
+                   {giay=0;
+                    phut++;
+                        if(phut==60)
+                        {
+                           phut=0;
+                           gio++;
+                              if(gio==24) gio=0;
+                        }
+                   }
+                }
+    }
+          lcd_command(0xc0);
+          printf(lcd_data," %u : %u : %u ",gio, phut, giay);
+}
+
+void main()
+{
+set_tris_a(0x10); //input A4
+set_tris_c(0);
+set_tris_d(0);
+set_tris_e(1);
+lcd_setup();
+setup_timer_0(T0_EXT_H_TO_L|T0_DIV_1);//Chon canh tich cuc va bo chia truoc
+set_timer0(0); //dat truoc so dem
+setup_timer_1(T1_internal|T1_DIV_BY_8); //Cau hình cho timer 0
+set_timer1(3036); 
+
+   while(true)
+   {
+      lcd_command(0x01); delay_ms(2); //xoa man hinh
+      lcd_command(0xd4);
+      if (che_do==0) printf(lcd_data,"MODE: KHONG");
+      if (che_do==1) printf(lcd_data,"MODE: CHINH GIO"); 
+      if (che_do==2) printf(lcd_data,"MODE: CHINH PHUT"); 
+      if (che_do==3) printf(lcd_data,"MODE: CHINH GHD"); 
+      lcd_command(0x80);
+      lcd_data("CAO VAN VINH");
+      thoigian();   
+      DEMSP();
+   }
+   
+}
