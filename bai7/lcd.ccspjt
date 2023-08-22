@@ -1,0 +1,68 @@
+[PROJECT]
+Target=lcd.hex
+Processor_Text=PIC16F887
+CCSVersion=5.101
+Compiler=PCM
+[Target Data]
+FileList=lcd.c
+[lcd.c]
+Type=4
+[mru-list]
+1=lcd.c
+
+[defines]
+buildcount=24
+
+[Opened Files]
+1=lcd.c
+t1=4
+2=TV_LCD.c
+t2=1
+Count=3
+3=C:\Program Files (x86)\PICC\Drivers\LCD.c
+t3=167
+
+[ProjectLog]
+Days=6
+D1=18-03-2023
+D1_L=2
+D1_L1=[82873]Stopped Editing.
+TotalEdit=45
+TotalDebug=0
+D1_E=25
+D1_D=0
+D1_L2=[82873]Project Closed.
+D2=19-03-2023
+D2_L=2
+D2_L1=[40909]Project Opened.
+D2_L2=[41979]Project Closed.
+D3=23-03-2023
+D3_L=2
+D3_L1=[59118]Project Opened.
+D3_L2=[59435]Project Closed.
+D4=24-03-2023
+D4_L=2
+D4_L1=[63357]Project Opened.
+D4_L2=[63373]Project Closed.
+D5=31-03-2023
+D5_L=4
+D5_L1=[82597]Project Opened.
+D5_L2=[82604]Started Editing.
+D5_L3=[83072]Stopped Editing.
+D5_E=3
+D5_D=0
+D5_L4=[84005]Project Closed.
+D6=06-04-2023
+D6_L=4
+D6_L1=[59178]Project Opened.
+D6_L2=[59331]Started Editing.
+D6_L3=[60607]Stopped Editing.
+D6_E=17
+D6_D=0
+D6_L4=[62451]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=lcd (main)
