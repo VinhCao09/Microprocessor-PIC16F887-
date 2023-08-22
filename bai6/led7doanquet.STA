@@ -1,0 +1,62 @@
+
+ROM used:   1298/8192 (16%)
+            1298/8192 (16%) including unused fragments
+
+            1.2 Average locations per line
+            7.7 Average locations per statement
+
+RAM used:   31/368 (8%) at main() level
+            36/368 (10%) worst case
+
+Stack used: 2 worst case (2 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  244   169 100  led7doanquet.c
+  809     0   0  C:\Program Files (x86)\PICC\Devices\16f887.h
+----- -----
+ 1053   169 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20   2    1             @delay_ms1
+0     14   1    0             @const715
+0     51   4    1    453  4.7  XULY_NUTNHAN
+0     54   4    1    226  2.8  xuatma7doan
+0     21   2    3             @DIV88
+0    124  10    5    480  5.2  choptat
+0    109   8    5    338  6.5  sangdanpst
+0    102   8    5    302  6.0  sangdantsp
+0     90   7    5    292  6.0  tatdanpst
+0     90   7    5    290  5.5  tatdantsp
+0     90   7    5    292  6.0  sangdichpst
+0     91   7    5    290  5.5  sangdichtsp
+0     90   7    5    292  6.0  sangdich3ledpst
+0     90   7    5    290  5.5  sangdich3ledtsp
+0    161  12    5    507  6.2  sangdontsp
+0     97   7    0    608  4.2  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               13
+    Statements              169
+    Comments                137
+    Volume (V)              7872
+    Difficulty (D)          69.3
+    Effort to implement (E) 545730
+    Time to implement (T)   8 hours, 25 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   49
+    Maintainability (MI)    48
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1294  750  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

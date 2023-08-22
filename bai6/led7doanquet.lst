@@ -1,0 +1,1577 @@
+CCS PCM C Compiler, Version 5.101, 43599               15-Mar-23 10:22
+
+               Filename:   D:\processor\bai6\led7doanquet.lst
+
+               ROM used:   1298 words (16%)
+                           Largest free fragment is 2048
+               RAM used:   31 (8%) at main() level
+                           36 (10%) worst case
+               Stack used: 2 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  04
+0001:  MOVWF  0A
+0002:  GOTO   4B1
+0003:  NOP
+.................... #include<16f887.h>
+.................... //////////// Standard Header file for the PIC16F887 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F887
+0004:  BCF    0A.0
+0005:  BCF    0A.1
+0006:  BCF    0A.2
+0007:  ADDWF  02,F
+0008:  RETLW  C0
+0009:  RETLW  F9
+000A:  RETLW  A4
+000B:  RETLW  B0
+000C:  RETLW  99
+000D:  RETLW  92
+000E:  RETLW  82
+000F:  RETLW  F8
+0010:  RETLW  80
+0011:  RETLW  90
+0012:  MOVF   3C,W
+0013:  CLRF   78
+0014:  SUBWF  3B,W
+0015:  BTFSC  03.0
+0016:  GOTO   01A
+0017:  MOVF   3B,W
+0018:  MOVWF  77
+0019:  GOTO   026
+001A:  CLRF   77
+001B:  MOVLW  08
+001C:  MOVWF  3D
+001D:  RLF    3B,F
+001E:  RLF    77,F
+001F:  MOVF   3C,W
+0020:  SUBWF  77,W
+0021:  BTFSC  03.0
+0022:  MOVWF  77
+0023:  RLF    78,F
+0024:  DECFSZ 3D,F
+0025:  GOTO   01D
+0026:  RETURN
+.................... 
+.................... #list
+.................... 
+.................... #fuses intrc_io
+.................... #use delay(clock=8M)
+0027:  MOVLW  3A
+0028:  MOVWF  04
+0029:  BCF    03.7
+002A:  MOVF   00,W
+002B:  BTFSC  03.2
+002C:  GOTO   03A
+002D:  MOVLW  02
+002E:  MOVWF  78
+002F:  CLRF   77
+0030:  DECFSZ 77,F
+0031:  GOTO   030
+0032:  DECFSZ 78,F
+0033:  GOTO   02F
+0034:  MOVLW  97
+0035:  MOVWF  77
+0036:  DECFSZ 77,F
+0037:  GOTO   036
+0038:  DECFSZ 00,F
+0039:  GOTO   02D
+003A:  RETURN
+.................... int32 i,LED,a,j,LED1,m;
+.................... int count=1;
+.................... const unsigned int8 ma7doan[10]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+.................... 
+.................... 
+.................... void XULY_NUTNHAN()
+.................... {
+....................    if(input(pin_e0)==0)
+*
+0071:  BSF    03.5
+0072:  BSF    09.0
+0073:  BCF    03.5
+0074:  BTFSC  09.0
+0075:  GOTO   08B
+....................    {
+....................       delay_ms(20);
+0076:  MOVLW  14
+0077:  MOVWF  3A
+0078:  CALL   027
+....................       if(input(pin_e0)==0)
+0079:  BSF    03.5
+007A:  BSF    09.0
+007B:  BCF    03.5
+007C:  BTFSC  09.0
+007D:  GOTO   08A
+....................       {
+....................       count++;
+007E:  INCF   38,F
+....................       while(input(pin_e0)==0);
+007F:  BSF    03.5
+0080:  BSF    09.0
+0081:  BCF    03.5
+0082:  BTFSS  09.0
+0083:  GOTO   07F
+....................       if (count==11) count=1;
+0084:  MOVF   38,W
+0085:  SUBLW  0B
+0086:  BTFSS  03.2
+0087:  GOTO   08A
+0088:  MOVLW  01
+0089:  MOVWF  38
+....................       }
+....................    }
+008A:  GOTO   0A3
+....................    else if(input(pin_e1)==0)
+008B:  BSF    03.5
+008C:  BSF    09.1
+008D:  BCF    03.5
+008E:  BTFSC  09.1
+008F:  GOTO   0A3
+....................    {
+....................       delay_ms(20);
+0090:  MOVLW  14
+0091:  MOVWF  3A
+0092:  CALL   027
+....................       if(input(pin_e1)==0)
+0093:  BSF    03.5
+0094:  BSF    09.1
+0095:  BCF    03.5
+0096:  BTFSC  09.1
+0097:  GOTO   0A3
+....................       {
+....................       count--;
+0098:  DECF   38,F
+....................       while(input(pin_e1)==0);
+0099:  BSF    03.5
+009A:  BSF    09.1
+009B:  BCF    03.5
+009C:  BTFSS  09.1
+009D:  GOTO   099
+....................       if (count==0) count=10;
+009E:  MOVF   38,F
+009F:  BTFSS  03.2
+00A0:  GOTO   0A3
+00A1:  MOVLW  0A
+00A2:  MOVWF  38
+....................       }
+....................    }
+00A3:  RETURN
+.................... }
+.................... void xuatma7doan()   
+.................... {  
+....................    output_a(ma7doan[count/1%10]); output_low(pin_b1); delay_ms(1); output_high(pin_b1);
+*
+003B:  MOVF   38,W
+003C:  MOVWF  3B
+003D:  MOVLW  0A
+003E:  MOVWF  3C
+003F:  CALL   012
+0040:  MOVF   77,W
+0041:  CALL   004
+0042:  MOVWF  3A
+0043:  BSF    03.5
+0044:  CLRF   05
+0045:  BCF    03.5
+0046:  MOVF   3A,W
+0047:  MOVWF  05
+0048:  BSF    03.5
+0049:  BCF    06.1
+004A:  BCF    03.5
+004B:  BCF    06.1
+004C:  MOVLW  01
+004D:  MOVWF  3A
+004E:  CALL   027
+004F:  BSF    03.5
+0050:  BCF    06.1
+0051:  BCF    03.5
+0052:  BSF    06.1
+....................    output_a(ma7doan[count/10%10]); output_low(pin_b0); delay_ms(1); output_high(pin_b0);
+0053:  MOVF   38,W
+0054:  MOVWF  3B
+0055:  MOVLW  0A
+0056:  MOVWF  3C
+0057:  CALL   012
+0058:  MOVF   78,W
+0059:  MOVWF  3B
+005A:  MOVLW  0A
+005B:  MOVWF  3C
+005C:  CALL   012
+005D:  MOVF   77,W
+005E:  CALL   004
+005F:  MOVWF  3A
+0060:  BSF    03.5
+0061:  CLRF   05
+0062:  BCF    03.5
+0063:  MOVF   3A,W
+0064:  MOVWF  05
+0065:  BSF    03.5
+0066:  BCF    06.0
+0067:  BCF    03.5
+0068:  BCF    06.0
+0069:  MOVLW  01
+006A:  MOVWF  3A
+006B:  CALL   027
+006C:  BSF    03.5
+006D:  BCF    06.0
+006E:  BCF    03.5
+006F:  BSF    06.0
+0070:  RETURN
+....................    
+.................... }
+....................    
+.................... void choptat()
+.................... {
+....................    for(i=0;i<3;i++)
+*
+00A4:  CLRF   23
+00A5:  CLRF   22
+00A6:  CLRF   21
+00A7:  CLRF   20
+00A8:  MOVF   23,F
+00A9:  BTFSS  03.2
+00AA:  GOTO   11D
+00AB:  MOVF   22,F
+00AC:  BTFSS  03.2
+00AD:  GOTO   11D
+00AE:  MOVF   21,F
+00AF:  BTFSS  03.2
+00B0:  GOTO   11D
+00B1:  MOVF   20,W
+00B2:  SUBLW  02
+00B3:  BTFSS  03.0
+00B4:  GOTO   11D
+....................    {
+....................    led=0xFFFF; 
+00B5:  CLRF   27
+00B6:  CLRF   26
+00B7:  MOVLW  FF
+00B8:  MOVWF  25
+00B9:  MOVWF  24
+....................    output_d(LED);
+00BA:  BSF    03.5
+00BB:  CLRF   08
+00BC:  BCF    03.5
+00BD:  MOVF   24,W
+00BE:  MOVWF  08
+....................    output_c(LED>>8);
+00BF:  CLRF   3E
+00C0:  MOVLW  00
+00C1:  MOVWF  39
+00C2:  BSF    03.5
+00C3:  CLRF   07
+00C4:  BCF    03.5
+00C5:  MOVF   25,W
+00C6:  MOVWF  07
+....................    for(m=0;m<10;m++)  xuatma7doan();
+00C7:  CLRF   37
+00C8:  CLRF   36
+00C9:  CLRF   35
+00CA:  CLRF   34
+00CB:  MOVF   37,F
+00CC:  BTFSS  03.2
+00CD:  GOTO   0E2
+00CE:  MOVF   36,F
+00CF:  BTFSS  03.2
+00D0:  GOTO   0E2
+00D1:  MOVF   35,F
+00D2:  BTFSS  03.2
+00D3:  GOTO   0E2
+00D4:  MOVF   34,W
+00D5:  SUBLW  09
+00D6:  BTFSS  03.0
+00D7:  GOTO   0E2
+00D8:  CALL   03B
+00D9:  MOVLW  01
+00DA:  ADDWF  34,F
+00DB:  BTFSC  03.0
+00DC:  INCF   35,F
+00DD:  BTFSC  03.2
+00DE:  INCF   36,F
+00DF:  BTFSC  03.2
+00E0:  INCF   37,F
+00E1:  GOTO   0CB
+....................    XULY_NUTNHAN();
+00E2:  CALL   071
+....................    led=0x0000; 
+00E3:  CLRF   27
+00E4:  CLRF   26
+00E5:  CLRF   25
+00E6:  CLRF   24
+....................    output_d(LED);
+00E7:  BSF    03.5
+00E8:  CLRF   08
+00E9:  BCF    03.5
+00EA:  MOVF   24,W
+00EB:  MOVWF  08
+....................    output_c(LED>>8);
+00EC:  CLRF   3E
+00ED:  MOVLW  00
+00EE:  MOVWF  39
+00EF:  BSF    03.5
+00F0:  CLRF   07
+00F1:  BCF    03.5
+00F2:  MOVF   25,W
+00F3:  MOVWF  07
+....................    
+....................    XULY_NUTNHAN();
+00F4:  CALL   071
+....................    for(m=0;m<10;m++)  xuatma7doan();
+00F5:  CLRF   37
+00F6:  CLRF   36
+00F7:  CLRF   35
+00F8:  CLRF   34
+00F9:  MOVF   37,F
+00FA:  BTFSS  03.2
+00FB:  GOTO   110
+00FC:  MOVF   36,F
+00FD:  BTFSS  03.2
+00FE:  GOTO   110
+00FF:  MOVF   35,F
+0100:  BTFSS  03.2
+0101:  GOTO   110
+0102:  MOVF   34,W
+0103:  SUBLW  09
+0104:  BTFSS  03.0
+0105:  GOTO   110
+0106:  CALL   03B
+0107:  MOVLW  01
+0108:  ADDWF  34,F
+0109:  BTFSC  03.0
+010A:  INCF   35,F
+010B:  BTFSC  03.2
+010C:  INCF   36,F
+010D:  BTFSC  03.2
+010E:  INCF   37,F
+010F:  GOTO   0F9
+....................    if(count!=1) break;
+0110:  DECFSZ 38,W
+0111:  GOTO   113
+0112:  GOTO   114
+0113:  GOTO   11D
+0114:  MOVLW  01
+0115:  ADDWF  20,F
+0116:  BTFSC  03.0
+0117:  INCF   21,F
+0118:  BTFSC  03.2
+0119:  INCF   22,F
+011A:  BTFSC  03.2
+011B:  INCF   23,F
+011C:  GOTO   0A8
+....................    }
+011D:  BCF    0A.3
+011E:  BCF    0A.4
+011F:  GOTO   510 (RETURN)
+.................... }
+.................... 
+.................... void sangdanpst()
+.................... {
+.................... LED=0x0001; //0000 0000 0000 0000 0000 0001
+0120:  CLRF   27
+0121:  CLRF   26
+0122:  CLRF   25
+0123:  MOVLW  01
+0124:  MOVWF  24
+....................    for(i=0;i<=16;i++)
+0125:  CLRF   23
+0126:  CLRF   22
+0127:  CLRF   21
+0128:  CLRF   20
+0129:  MOVF   23,F
+012A:  BTFSS  03.2
+012B:  GOTO   18A
+012C:  MOVF   22,F
+012D:  BTFSS  03.2
+012E:  GOTO   18A
+012F:  MOVF   21,F
+0130:  BTFSS  03.2
+0131:  GOTO   18A
+0132:  MOVF   20,W
+0133:  SUBLW  10
+0134:  BTFSS  03.0
+0135:  GOTO   18A
+....................    {
+.................... 
+....................    LED=(LED<<1)+0x01;
+0136:  BCF    03.0
+0137:  RLF    24,W
+0138:  MOVWF  3B
+0139:  RLF    25,W
+013A:  MOVWF  3C
+013B:  RLF    26,W
+013C:  MOVWF  3D
+013D:  RLF    27,W
+013E:  MOVWF  3E
+013F:  MOVLW  01
+0140:  ADDWF  3B,W
+0141:  MOVWF  24
+0142:  MOVF   3C,W
+0143:  MOVWF  25
+0144:  MOVLW  00
+0145:  BTFSC  03.0
+0146:  MOVLW  01
+0147:  ADDWF  25,F
+0148:  MOVF   3D,W
+0149:  MOVWF  26
+014A:  MOVLW  00
+014B:  BTFSC  03.0
+014C:  MOVLW  01
+014D:  ADDWF  26,F
+014E:  MOVF   3E,W
+014F:  MOVWF  27
+0150:  MOVLW  00
+0151:  BTFSC  03.0
+0152:  MOVLW  01
+0153:  ADDWF  27,F
+....................    output_d(LED);
+0154:  BSF    03.5
+0155:  CLRF   08
+0156:  BCF    03.5
+0157:  MOVF   24,W
+0158:  MOVWF  08
+....................    output_c(LED>>8);
+0159:  CLRF   3E
+015A:  MOVLW  00
+015B:  MOVWF  39
+015C:  BSF    03.5
+015D:  CLRF   07
+015E:  BCF    03.5
+015F:  MOVF   25,W
+0160:  MOVWF  07
+....................    
+....................    XULY_NUTNHAN();
+0161:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+0162:  CLRF   37
+0163:  CLRF   36
+0164:  CLRF   35
+0165:  CLRF   34
+0166:  MOVF   37,F
+0167:  BTFSS  03.2
+0168:  GOTO   17D
+0169:  MOVF   36,F
+016A:  BTFSS  03.2
+016B:  GOTO   17D
+016C:  MOVF   35,F
+016D:  BTFSS  03.2
+016E:  GOTO   17D
+016F:  MOVF   34,W
+0170:  SUBLW  09
+0171:  BTFSS  03.0
+0172:  GOTO   17D
+0173:  CALL   03B
+0174:  MOVLW  01
+0175:  ADDWF  34,F
+0176:  BTFSC  03.0
+0177:  INCF   35,F
+0178:  BTFSC  03.2
+0179:  INCF   36,F
+017A:  BTFSC  03.2
+017B:  INCF   37,F
+017C:  GOTO   166
+....................    if(count!=2) break;
+017D:  MOVF   38,W
+017E:  SUBLW  02
+017F:  BTFSS  03.2
+0180:  GOTO   18A
+0181:  MOVLW  01
+0182:  ADDWF  20,F
+0183:  BTFSC  03.0
+0184:  INCF   21,F
+0185:  BTFSC  03.2
+0186:  INCF   22,F
+0187:  BTFSC  03.2
+0188:  INCF   23,F
+0189:  GOTO   129
+....................    }
+018A:  BCF    0A.3
+018B:  BCF    0A.4
+018C:  GOTO   510 (RETURN)
+.................... }
+.................... void sangdantsp()
+.................... {
+....................    for(i=0;i<=16;i++)
+*
+01E7:  CLRF   23
+01E8:  CLRF   22
+01E9:  CLRF   21
+01EA:  CLRF   20
+01EB:  MOVF   23,F
+01EC:  BTFSS  03.2
+01ED:  GOTO   24A
+01EE:  MOVF   22,F
+01EF:  BTFSS  03.2
+01F0:  GOTO   24A
+01F1:  MOVF   21,F
+01F2:  BTFSS  03.2
+01F3:  GOTO   24A
+01F4:  MOVF   20,W
+01F5:  SUBLW  10
+01F6:  BTFSS  03.0
+01F7:  GOTO   24A
+....................    {
+....................    LED=~(0xffff>>i);
+01F8:  CLRF   7A
+01F9:  CLRF   79
+01FA:  MOVLW  FF
+01FB:  MOVWF  78
+01FC:  MOVWF  77
+01FD:  MOVF   20,W
+01FE:  MOVWF  3A
+01FF:  BTFSC  03.2
+0200:  GOTO   208
+0201:  BCF    03.0
+0202:  RRF    7A,F
+0203:  RRF    79,F
+0204:  RRF    78,F
+0205:  RRF    77,F
+0206:  DECFSZ 3A,F
+0207:  GOTO   201
+0208:  MOVF   77,W
+0209:  MOVWF  24
+020A:  COMF   24,F
+020B:  MOVF   78,W
+020C:  MOVWF  25
+020D:  COMF   25,F
+020E:  MOVF   79,W
+020F:  MOVWF  26
+0210:  COMF   26,F
+0211:  MOVF   7A,W
+0212:  MOVWF  27
+0213:  COMF   27,F
+....................    output_d(LED);
+0214:  BSF    03.5
+0215:  CLRF   08
+0216:  BCF    03.5
+0217:  MOVF   24,W
+0218:  MOVWF  08
+....................    output_c(LED>>8);
+0219:  CLRF   3E
+021A:  MOVLW  00
+021B:  MOVWF  39
+021C:  BSF    03.5
+021D:  CLRF   07
+021E:  BCF    03.5
+021F:  MOVF   25,W
+0220:  MOVWF  07
+....................    
+....................    XULY_NUTNHAN();
+0221:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+0222:  CLRF   37
+0223:  CLRF   36
+0224:  CLRF   35
+0225:  CLRF   34
+0226:  MOVF   37,F
+0227:  BTFSS  03.2
+0228:  GOTO   23D
+0229:  MOVF   36,F
+022A:  BTFSS  03.2
+022B:  GOTO   23D
+022C:  MOVF   35,F
+022D:  BTFSS  03.2
+022E:  GOTO   23D
+022F:  MOVF   34,W
+0230:  SUBLW  09
+0231:  BTFSS  03.0
+0232:  GOTO   23D
+0233:  CALL   03B
+0234:  MOVLW  01
+0235:  ADDWF  34,F
+0236:  BTFSC  03.0
+0237:  INCF   35,F
+0238:  BTFSC  03.2
+0239:  INCF   36,F
+023A:  BTFSC  03.2
+023B:  INCF   37,F
+023C:  GOTO   226
+....................    if(count!=4) break;
+023D:  MOVF   38,W
+023E:  SUBLW  04
+023F:  BTFSS  03.2
+0240:  GOTO   24A
+0241:  MOVLW  01
+0242:  ADDWF  20,F
+0243:  BTFSC  03.0
+0244:  INCF   21,F
+0245:  BTFSC  03.2
+0246:  INCF   22,F
+0247:  BTFSC  03.2
+0248:  INCF   23,F
+0249:  GOTO   1EB
+....................   
+....................    }
+024A:  BCF    0A.3
+024B:  BCF    0A.4
+024C:  GOTO   510 (RETURN)
+....................  }
+....................    
+.................... void tatdanpst()
+.................... {
+....................    for(i=0;i<=24;i++)
+024D:  CLRF   23
+024E:  CLRF   22
+024F:  CLRF   21
+0250:  CLRF   20
+0251:  MOVF   23,F
+0252:  BTFSS  03.2
+0253:  GOTO   2A4
+0254:  MOVF   22,F
+0255:  BTFSS  03.2
+0256:  GOTO   2A4
+0257:  MOVF   21,F
+0258:  BTFSS  03.2
+0259:  GOTO   2A4
+025A:  MOVF   20,W
+025B:  SUBLW  18
+025C:  BTFSS  03.0
+025D:  GOTO   2A4
+....................    {
+.................... 
+....................  
+....................    LED=0xffff<<i; 
+025E:  CLRF   27
+025F:  CLRF   26
+0260:  MOVLW  FF
+0261:  MOVWF  25
+0262:  MOVWF  24
+0263:  MOVF   20,W
+0264:  MOVWF  3A
+0265:  BTFSC  03.2
+0266:  GOTO   26E
+0267:  BCF    03.0
+0268:  RLF    24,F
+0269:  RLF    25,F
+026A:  RLF    26,F
+026B:  RLF    27,F
+026C:  DECFSZ 3A,F
+026D:  GOTO   267
+....................    output_d(LED);
+026E:  BSF    03.5
+026F:  CLRF   08
+0270:  BCF    03.5
+0271:  MOVF   24,W
+0272:  MOVWF  08
+....................    output_c(LED>>8);
+0273:  CLRF   3E
+0274:  MOVLW  00
+0275:  MOVWF  39
+0276:  BSF    03.5
+0277:  CLRF   07
+0278:  BCF    03.5
+0279:  MOVF   25,W
+027A:  MOVWF  07
+....................    
+....................    XULY_NUTNHAN();
+027B:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+027C:  CLRF   37
+027D:  CLRF   36
+027E:  CLRF   35
+027F:  CLRF   34
+0280:  MOVF   37,F
+0281:  BTFSS  03.2
+0282:  GOTO   297
+0283:  MOVF   36,F
+0284:  BTFSS  03.2
+0285:  GOTO   297
+0286:  MOVF   35,F
+0287:  BTFSS  03.2
+0288:  GOTO   297
+0289:  MOVF   34,W
+028A:  SUBLW  09
+028B:  BTFSS  03.0
+028C:  GOTO   297
+028D:  CALL   03B
+028E:  MOVLW  01
+028F:  ADDWF  34,F
+0290:  BTFSC  03.0
+0291:  INCF   35,F
+0292:  BTFSC  03.2
+0293:  INCF   36,F
+0294:  BTFSC  03.2
+0295:  INCF   37,F
+0296:  GOTO   280
+....................    if(count!=5) break;
+0297:  MOVF   38,W
+0298:  SUBLW  05
+0299:  BTFSS  03.2
+029A:  GOTO   2A4
+029B:  MOVLW  01
+029C:  ADDWF  20,F
+029D:  BTFSC  03.0
+029E:  INCF   21,F
+029F:  BTFSC  03.2
+02A0:  INCF   22,F
+02A1:  BTFSC  03.2
+02A2:  INCF   23,F
+02A3:  GOTO   251
+....................    }
+02A4:  BCF    0A.3
+02A5:  BCF    0A.4
+02A6:  GOTO   510 (RETURN)
+.................... }
+.................... 
+.................... void tatdantsp()
+.................... {
+....................    for(i=0;i<=24;i++)
+*
+018D:  CLRF   23
+018E:  CLRF   22
+018F:  CLRF   21
+0190:  CLRF   20
+0191:  MOVF   23,F
+0192:  BTFSS  03.2
+0193:  GOTO   1E4
+0194:  MOVF   22,F
+0195:  BTFSS  03.2
+0196:  GOTO   1E4
+0197:  MOVF   21,F
+0198:  BTFSS  03.2
+0199:  GOTO   1E4
+019A:  MOVF   20,W
+019B:  SUBLW  18
+019C:  BTFSS  03.0
+019D:  GOTO   1E4
+....................    {
+....................    LED=0xffff>>i;
+019E:  CLRF   27
+019F:  CLRF   26
+01A0:  MOVLW  FF
+01A1:  MOVWF  25
+01A2:  MOVWF  24
+01A3:  MOVF   20,W
+01A4:  MOVWF  3A
+01A5:  BTFSC  03.2
+01A6:  GOTO   1AE
+01A7:  BCF    03.0
+01A8:  RRF    27,F
+01A9:  RRF    26,F
+01AA:  RRF    25,F
+01AB:  RRF    24,F
+01AC:  DECFSZ 3A,F
+01AD:  GOTO   1A7
+....................    output_d(LED);
+01AE:  BSF    03.5
+01AF:  CLRF   08
+01B0:  BCF    03.5
+01B1:  MOVF   24,W
+01B2:  MOVWF  08
+....................    output_c(LED>>8);
+01B3:  CLRF   3E
+01B4:  MOVLW  00
+01B5:  MOVWF  39
+01B6:  BSF    03.5
+01B7:  CLRF   07
+01B8:  BCF    03.5
+01B9:  MOVF   25,W
+01BA:  MOVWF  07
+....................    
+....................    XULY_NUTNHAN();
+01BB:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+01BC:  CLRF   37
+01BD:  CLRF   36
+01BE:  CLRF   35
+01BF:  CLRF   34
+01C0:  MOVF   37,F
+01C1:  BTFSS  03.2
+01C2:  GOTO   1D7
+01C3:  MOVF   36,F
+01C4:  BTFSS  03.2
+01C5:  GOTO   1D7
+01C6:  MOVF   35,F
+01C7:  BTFSS  03.2
+01C8:  GOTO   1D7
+01C9:  MOVF   34,W
+01CA:  SUBLW  09
+01CB:  BTFSS  03.0
+01CC:  GOTO   1D7
+01CD:  CALL   03B
+01CE:  MOVLW  01
+01CF:  ADDWF  34,F
+01D0:  BTFSC  03.0
+01D1:  INCF   35,F
+01D2:  BTFSC  03.2
+01D3:  INCF   36,F
+01D4:  BTFSC  03.2
+01D5:  INCF   37,F
+01D6:  GOTO   1C0
+....................    if(count!=3) break;
+01D7:  MOVF   38,W
+01D8:  SUBLW  03
+01D9:  BTFSS  03.2
+01DA:  GOTO   1E4
+01DB:  MOVLW  01
+01DC:  ADDWF  20,F
+01DD:  BTFSC  03.0
+01DE:  INCF   21,F
+01DF:  BTFSC  03.2
+01E0:  INCF   22,F
+01E1:  BTFSC  03.2
+01E2:  INCF   23,F
+01E3:  GOTO   191
+....................    }
+01E4:  BCF    0A.3
+01E5:  BCF    0A.4
+01E6:  GOTO   510 (RETURN)
+.................... }
+....................  
+.................... void sangdichpst()
+.................... {
+....................    for(i=0;i<=16;i++)
+*
+02A7:  CLRF   23
+02A8:  CLRF   22
+02A9:  CLRF   21
+02AA:  CLRF   20
+02AB:  MOVF   23,F
+02AC:  BTFSS  03.2
+02AD:  GOTO   2FE
+02AE:  MOVF   22,F
+02AF:  BTFSS  03.2
+02B0:  GOTO   2FE
+02B1:  MOVF   21,F
+02B2:  BTFSS  03.2
+02B3:  GOTO   2FE
+02B4:  MOVF   20,W
+02B5:  SUBLW  10
+02B6:  BTFSS  03.0
+02B7:  GOTO   2FE
+....................    {
+.................... 
+.................... 
+....................    LED=0x0001<<i; 
+02B8:  CLRF   27
+02B9:  CLRF   26
+02BA:  CLRF   25
+02BB:  MOVLW  01
+02BC:  MOVWF  24
+02BD:  MOVF   20,W
+02BE:  MOVWF  3A
+02BF:  BTFSC  03.2
+02C0:  GOTO   2C8
+02C1:  BCF    03.0
+02C2:  RLF    24,F
+02C3:  RLF    25,F
+02C4:  RLF    26,F
+02C5:  RLF    27,F
+02C6:  DECFSZ 3A,F
+02C7:  GOTO   2C1
+....................    output_d(LED);
+02C8:  BSF    03.5
+02C9:  CLRF   08
+02CA:  BCF    03.5
+02CB:  MOVF   24,W
+02CC:  MOVWF  08
+....................    output_c(LED>>8);
+02CD:  CLRF   3E
+02CE:  MOVLW  00
+02CF:  MOVWF  39
+02D0:  BSF    03.5
+02D1:  CLRF   07
+02D2:  BCF    03.5
+02D3:  MOVF   25,W
+02D4:  MOVWF  07
+....................   
+....................    XULY_NUTNHAN();
+02D5:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+02D6:  CLRF   37
+02D7:  CLRF   36
+02D8:  CLRF   35
+02D9:  CLRF   34
+02DA:  MOVF   37,F
+02DB:  BTFSS  03.2
+02DC:  GOTO   2F1
+02DD:  MOVF   36,F
+02DE:  BTFSS  03.2
+02DF:  GOTO   2F1
+02E0:  MOVF   35,F
+02E1:  BTFSS  03.2
+02E2:  GOTO   2F1
+02E3:  MOVF   34,W
+02E4:  SUBLW  09
+02E5:  BTFSS  03.0
+02E6:  GOTO   2F1
+02E7:  CALL   03B
+02E8:  MOVLW  01
+02E9:  ADDWF  34,F
+02EA:  BTFSC  03.0
+02EB:  INCF   35,F
+02EC:  BTFSC  03.2
+02ED:  INCF   36,F
+02EE:  BTFSC  03.2
+02EF:  INCF   37,F
+02F0:  GOTO   2DA
+....................    if(count!=6) break;
+02F1:  MOVF   38,W
+02F2:  SUBLW  06
+02F3:  BTFSS  03.2
+02F4:  GOTO   2FE
+02F5:  MOVLW  01
+02F6:  ADDWF  20,F
+02F7:  BTFSC  03.0
+02F8:  INCF   21,F
+02F9:  BTFSC  03.2
+02FA:  INCF   22,F
+02FB:  BTFSC  03.2
+02FC:  INCF   23,F
+02FD:  GOTO   2AB
+....................    }
+02FE:  BCF    0A.3
+02FF:  BCF    0A.4
+0300:  GOTO   510 (RETURN)
+.................... }
+.................... 
+.................... void sangdichtsp()
+.................... {
+....................    for(i=0;i<=16;i++)
+0301:  CLRF   23
+0302:  CLRF   22
+0303:  CLRF   21
+0304:  CLRF   20
+0305:  MOVF   23,F
+0306:  BTFSS  03.2
+0307:  GOTO   359
+0308:  MOVF   22,F
+0309:  BTFSS  03.2
+030A:  GOTO   359
+030B:  MOVF   21,F
+030C:  BTFSS  03.2
+030D:  GOTO   359
+030E:  MOVF   20,W
+030F:  SUBLW  10
+0310:  BTFSS  03.0
+0311:  GOTO   359
+....................    {
+....................    LED=0x8001>>i;  
+0312:  CLRF   27
+0313:  CLRF   26
+0314:  MOVLW  80
+0315:  MOVWF  25
+0316:  MOVLW  01
+0317:  MOVWF  24
+0318:  MOVF   20,W
+0319:  MOVWF  3A
+031A:  BTFSC  03.2
+031B:  GOTO   323
+031C:  BCF    03.0
+031D:  RRF    27,F
+031E:  RRF    26,F
+031F:  RRF    25,F
+0320:  RRF    24,F
+0321:  DECFSZ 3A,F
+0322:  GOTO   31C
+....................    output_d(LED);
+0323:  BSF    03.5
+0324:  CLRF   08
+0325:  BCF    03.5
+0326:  MOVF   24,W
+0327:  MOVWF  08
+....................    output_c(LED>>8);
+0328:  CLRF   3E
+0329:  MOVLW  00
+032A:  MOVWF  39
+032B:  BSF    03.5
+032C:  CLRF   07
+032D:  BCF    03.5
+032E:  MOVF   25,W
+032F:  MOVWF  07
+....................    XULY_NUTNHAN();
+0330:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+0331:  CLRF   37
+0332:  CLRF   36
+0333:  CLRF   35
+0334:  CLRF   34
+0335:  MOVF   37,F
+0336:  BTFSS  03.2
+0337:  GOTO   34C
+0338:  MOVF   36,F
+0339:  BTFSS  03.2
+033A:  GOTO   34C
+033B:  MOVF   35,F
+033C:  BTFSS  03.2
+033D:  GOTO   34C
+033E:  MOVF   34,W
+033F:  SUBLW  09
+0340:  BTFSS  03.0
+0341:  GOTO   34C
+0342:  CALL   03B
+0343:  MOVLW  01
+0344:  ADDWF  34,F
+0345:  BTFSC  03.0
+0346:  INCF   35,F
+0347:  BTFSC  03.2
+0348:  INCF   36,F
+0349:  BTFSC  03.2
+034A:  INCF   37,F
+034B:  GOTO   335
+....................    if(count!=7) break;
+034C:  MOVF   38,W
+034D:  SUBLW  07
+034E:  BTFSS  03.2
+034F:  GOTO   359
+0350:  MOVLW  01
+0351:  ADDWF  20,F
+0352:  BTFSC  03.0
+0353:  INCF   21,F
+0354:  BTFSC  03.2
+0355:  INCF   22,F
+0356:  BTFSC  03.2
+0357:  INCF   23,F
+0358:  GOTO   305
+....................    }
+0359:  BCF    0A.3
+035A:  BCF    0A.4
+035B:  GOTO   510 (RETURN)
+.................... }
+.................... 
+.................... void sangdich3ledpst()
+.................... {
+....................    for(i=0;i<=16;i++)
+035C:  CLRF   23
+035D:  CLRF   22
+035E:  CLRF   21
+035F:  CLRF   20
+0360:  MOVF   23,F
+0361:  BTFSS  03.2
+0362:  GOTO   3B3
+0363:  MOVF   22,F
+0364:  BTFSS  03.2
+0365:  GOTO   3B3
+0366:  MOVF   21,F
+0367:  BTFSS  03.2
+0368:  GOTO   3B3
+0369:  MOVF   20,W
+036A:  SUBLW  10
+036B:  BTFSS  03.0
+036C:  GOTO   3B3
+....................    {
+....................    LED=0x0007<<i;
+036D:  CLRF   27
+036E:  CLRF   26
+036F:  CLRF   25
+0370:  MOVLW  07
+0371:  MOVWF  24
+0372:  MOVF   20,W
+0373:  MOVWF  3A
+0374:  BTFSC  03.2
+0375:  GOTO   37D
+0376:  BCF    03.0
+0377:  RLF    24,F
+0378:  RLF    25,F
+0379:  RLF    26,F
+037A:  RLF    27,F
+037B:  DECFSZ 3A,F
+037C:  GOTO   376
+....................    output_d(LED);
+037D:  BSF    03.5
+037E:  CLRF   08
+037F:  BCF    03.5
+0380:  MOVF   24,W
+0381:  MOVWF  08
+....................    output_c(LED>>8);
+0382:  CLRF   3E
+0383:  MOVLW  00
+0384:  MOVWF  39
+0385:  BSF    03.5
+0386:  CLRF   07
+0387:  BCF    03.5
+0388:  MOVF   25,W
+0389:  MOVWF  07
+....................    XULY_NUTNHAN();
+038A:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+038B:  CLRF   37
+038C:  CLRF   36
+038D:  CLRF   35
+038E:  CLRF   34
+038F:  MOVF   37,F
+0390:  BTFSS  03.2
+0391:  GOTO   3A6
+0392:  MOVF   36,F
+0393:  BTFSS  03.2
+0394:  GOTO   3A6
+0395:  MOVF   35,F
+0396:  BTFSS  03.2
+0397:  GOTO   3A6
+0398:  MOVF   34,W
+0399:  SUBLW  09
+039A:  BTFSS  03.0
+039B:  GOTO   3A6
+039C:  CALL   03B
+039D:  MOVLW  01
+039E:  ADDWF  34,F
+039F:  BTFSC  03.0
+03A0:  INCF   35,F
+03A1:  BTFSC  03.2
+03A2:  INCF   36,F
+03A3:  BTFSC  03.2
+03A4:  INCF   37,F
+03A5:  GOTO   38F
+....................    if(count!=8) break;
+03A6:  MOVF   38,W
+03A7:  SUBLW  08
+03A8:  BTFSS  03.2
+03A9:  GOTO   3B3
+03AA:  MOVLW  01
+03AB:  ADDWF  20,F
+03AC:  BTFSC  03.0
+03AD:  INCF   21,F
+03AE:  BTFSC  03.2
+03AF:  INCF   22,F
+03B0:  BTFSC  03.2
+03B1:  INCF   23,F
+03B2:  GOTO   360
+....................    }
+03B3:  BCF    0A.3
+03B4:  BCF    0A.4
+03B5:  GOTO   510 (RETURN)
+.................... }
+.................... 
+.................... void sangdich3ledtsp()
+.................... {
+....................    for(i=0;i<=24;i++)
+03B6:  CLRF   23
+03B7:  CLRF   22
+03B8:  CLRF   21
+03B9:  CLRF   20
+03BA:  MOVF   23,F
+03BB:  BTFSS  03.2
+03BC:  GOTO   40D
+03BD:  MOVF   22,F
+03BE:  BTFSS  03.2
+03BF:  GOTO   40D
+03C0:  MOVF   21,F
+03C1:  BTFSS  03.2
+03C2:  GOTO   40D
+03C3:  MOVF   20,W
+03C4:  SUBLW  18
+03C5:  BTFSS  03.0
+03C6:  GOTO   40D
+....................    { 
+....................    LED=0xE000>>i;
+03C7:  CLRF   27
+03C8:  CLRF   26
+03C9:  MOVLW  E0
+03CA:  MOVWF  25
+03CB:  CLRF   24
+03CC:  MOVF   20,W
+03CD:  MOVWF  3A
+03CE:  BTFSC  03.2
+03CF:  GOTO   3D7
+03D0:  BCF    03.0
+03D1:  RRF    27,F
+03D2:  RRF    26,F
+03D3:  RRF    25,F
+03D4:  RRF    24,F
+03D5:  DECFSZ 3A,F
+03D6:  GOTO   3D0
+....................    output_d(LED);
+03D7:  BSF    03.5
+03D8:  CLRF   08
+03D9:  BCF    03.5
+03DA:  MOVF   24,W
+03DB:  MOVWF  08
+....................    output_c(LED>>8);
+03DC:  CLRF   3E
+03DD:  MOVLW  00
+03DE:  MOVWF  39
+03DF:  BSF    03.5
+03E0:  CLRF   07
+03E1:  BCF    03.5
+03E2:  MOVF   25,W
+03E3:  MOVWF  07
+....................    XULY_NUTNHAN();
+03E4:  CALL   071
+....................    for(m=0;m<10;m++) xuatma7doan();
+03E5:  CLRF   37
+03E6:  CLRF   36
+03E7:  CLRF   35
+03E8:  CLRF   34
+03E9:  MOVF   37,F
+03EA:  BTFSS  03.2
+03EB:  GOTO   400
+03EC:  MOVF   36,F
+03ED:  BTFSS  03.2
+03EE:  GOTO   400
+03EF:  MOVF   35,F
+03F0:  BTFSS  03.2
+03F1:  GOTO   400
+03F2:  MOVF   34,W
+03F3:  SUBLW  09
+03F4:  BTFSS  03.0
+03F5:  GOTO   400
+03F6:  CALL   03B
+03F7:  MOVLW  01
+03F8:  ADDWF  34,F
+03F9:  BTFSC  03.0
+03FA:  INCF   35,F
+03FB:  BTFSC  03.2
+03FC:  INCF   36,F
+03FD:  BTFSC  03.2
+03FE:  INCF   37,F
+03FF:  GOTO   3E9
+....................    if(count!=9) break;
+0400:  MOVF   38,W
+0401:  SUBLW  09
+0402:  BTFSS  03.2
+0403:  GOTO   40D
+0404:  MOVLW  01
+0405:  ADDWF  20,F
+0406:  BTFSC  03.0
+0407:  INCF   21,F
+0408:  BTFSC  03.2
+0409:  INCF   22,F
+040A:  BTFSC  03.2
+040B:  INCF   23,F
+040C:  GOTO   3BA
+....................    }
+040D:  BCF    0A.3
+040E:  BCF    0A.4
+040F:  GOTO   510 (RETURN)
+.................... } 
+.................... 
+.................... void sangdontsp()
+.................... {
+.................... a=0;
+0410:  CLRF   2B
+0411:  CLRF   2A
+0412:  CLRF   29
+0413:  CLRF   28
+.................... for(i=0;i<16;i++)
+0414:  CLRF   23
+0415:  CLRF   22
+0416:  CLRF   21
+0417:  CLRF   20
+0418:  MOVF   23,F
+0419:  BTFSS  03.2
+041A:  GOTO   4AE
+041B:  MOVF   22,F
+041C:  BTFSS  03.2
+041D:  GOTO   4AE
+041E:  MOVF   21,F
+041F:  BTFSS  03.2
+0420:  GOTO   4AE
+0421:  MOVF   20,W
+0422:  SUBLW  0F
+0423:  BTFSS  03.0
+0424:  GOTO   4AE
+....................    {
+....................    LED1=0x8000; 
+0425:  CLRF   33
+0426:  CLRF   32
+0427:  MOVLW  80
+0428:  MOVWF  31
+0429:  CLRF   30
+....................    for(j=0;j<16-i;j++)
+042A:  CLRF   2F
+042B:  CLRF   2E
+042C:  CLRF   2D
+042D:  CLRF   2C
+042E:  MOVF   20,W
+042F:  SUBLW  10
+0430:  MOVWF  77
+0431:  CLRF   78
+0432:  MOVF   21,W
+0433:  BTFSS  03.0
+0434:  INCFSZ 21,W
+0435:  SUBWF  78,F
+0436:  CLRF   79
+0437:  MOVF   22,W
+0438:  BTFSS  03.0
+0439:  INCFSZ 22,W
+043A:  SUBWF  79,F
+043B:  CLRF   7A
+043C:  MOVF   23,W
+043D:  BTFSS  03.0
+043E:  INCFSZ 23,W
+043F:  SUBWF  7A,F
+0440:  MOVF   2F,W
+0441:  SUBWF  7A,W
+0442:  BTFSS  03.0
+0443:  GOTO   49D
+0444:  BTFSS  03.2
+0445:  GOTO   456
+0446:  MOVF   2E,W
+0447:  SUBWF  79,W
+0448:  BTFSS  03.0
+0449:  GOTO   49D
+044A:  BTFSS  03.2
+044B:  GOTO   456
+044C:  MOVF   2D,W
+044D:  SUBWF  78,W
+044E:  BTFSS  03.0
+044F:  GOTO   49D
+0450:  BTFSS  03.2
+0451:  GOTO   456
+0452:  MOVF   77,W
+0453:  SUBWF  2C,W
+0454:  BTFSC  03.0
+0455:  GOTO   49D
+....................    {
+....................       LED=LED1|a;
+0456:  MOVF   30,W
+0457:  IORWF  28,W
+0458:  MOVWF  24
+0459:  MOVF   31,W
+045A:  IORWF  29,W
+045B:  MOVWF  25
+045C:  MOVF   32,W
+045D:  IORWF  2A,W
+045E:  MOVWF  26
+045F:  MOVF   33,W
+0460:  IORWF  2B,W
+0461:  MOVWF  27
+....................       if(count!=10) break;
+0462:  MOVF   38,W
+0463:  SUBLW  0A
+0464:  BTFSS  03.2
+0465:  GOTO   49D
+....................       output_d(LED);
+0466:  BSF    03.5
+0467:  CLRF   08
+0468:  BCF    03.5
+0469:  MOVF   24,W
+046A:  MOVWF  08
+....................       output_c(LED>>8);
+046B:  CLRF   3E
+046C:  MOVLW  00
+046D:  MOVWF  39
+046E:  BSF    03.5
+046F:  CLRF   07
+0470:  BCF    03.5
+0471:  MOVF   25,W
+0472:  MOVWF  07
+....................       XULY_NUTNHAN();
+0473:  CALL   071
+....................       for(m=0;m<10;m++) xuatma7doan();
+0474:  CLRF   37
+0475:  CLRF   36
+0476:  CLRF   35
+0477:  CLRF   34
+0478:  MOVF   37,F
+0479:  BTFSS  03.2
+047A:  GOTO   48F
+047B:  MOVF   36,F
+047C:  BTFSS  03.2
+047D:  GOTO   48F
+047E:  MOVF   35,F
+047F:  BTFSS  03.2
+0480:  GOTO   48F
+0481:  MOVF   34,W
+0482:  SUBLW  09
+0483:  BTFSS  03.0
+0484:  GOTO   48F
+0485:  CALL   03B
+0486:  MOVLW  01
+0487:  ADDWF  34,F
+0488:  BTFSC  03.0
+0489:  INCF   35,F
+048A:  BTFSC  03.2
+048B:  INCF   36,F
+048C:  BTFSC  03.2
+048D:  INCF   37,F
+048E:  GOTO   478
+....................       LED1=LED1>>1;
+048F:  BCF    03.0
+0490:  RRF    33,F
+0491:  RRF    32,F
+0492:  RRF    31,F
+0493:  RRF    30,F
+0494:  MOVLW  01
+0495:  ADDWF  2C,F
+0496:  BTFSC  03.0
+0497:  INCF   2D,F
+0498:  BTFSC  03.2
+0499:  INCF   2E,F
+049A:  BTFSC  03.2
+049B:  INCF   2F,F
+049C:  GOTO   42E
+....................    }
+....................    a=LED; 
+049D:  MOVF   27,W
+049E:  MOVWF  2B
+049F:  MOVF   26,W
+04A0:  MOVWF  2A
+04A1:  MOVF   25,W
+04A2:  MOVWF  29
+04A3:  MOVF   24,W
+04A4:  MOVWF  28
+04A5:  MOVLW  01
+04A6:  ADDWF  20,F
+04A7:  BTFSC  03.0
+04A8:  INCF   21,F
+04A9:  BTFSC  03.2
+04AA:  INCF   22,F
+04AB:  BTFSC  03.2
+04AC:  INCF   23,F
+04AD:  GOTO   418
+....................    }
+04AE:  BCF    0A.3
+04AF:  BCF    0A.4
+04B0:  GOTO   510 (RETURN)
+.................... }
+.................... 
+.................... 
+.................... void main()
+04B1:  MOVF   03,W
+04B2:  ANDLW  1F
+04B3:  MOVWF  03
+04B4:  MOVLW  71
+04B5:  BSF    03.5
+04B6:  MOVWF  0F
+04B7:  CLRF   10
+04B8:  MOVF   0F,W
+04B9:  MOVLW  01
+04BA:  BCF    03.5
+04BB:  MOVWF  38
+04BC:  MOVLW  FF
+04BD:  MOVWF  39
+04BE:  BSF    03.5
+04BF:  BSF    03.6
+04C0:  MOVF   09,W
+04C1:  ANDLW  C0
+04C2:  MOVWF  09
+04C3:  BCF    03.6
+04C4:  BCF    1F.4
+04C5:  BCF    1F.5
+04C6:  MOVLW  00
+04C7:  BSF    03.6
+04C8:  MOVWF  08
+04C9:  BCF    03.5
+04CA:  CLRF   07
+04CB:  CLRF   08
+04CC:  CLRF   09
+04CD:  BCF    03.7
+.................... {
+.................... set_tris_d(0);
+04CE:  MOVLW  00
+04CF:  BSF    03.5
+04D0:  BCF    03.6
+04D1:  MOVWF  08
+.................... set_tris_c(0);
+04D2:  MOVWF  07
+04D3:  BCF    03.5
+04D4:  MOVWF  39
+.................... set_tris_b(0);
+04D5:  BSF    03.5
+04D6:  MOVWF  06
+.................... set_tris_a(0);
+04D7:  MOVWF  05
+.................... set_tris_e(1);
+04D8:  BSF    09.0
+04D9:  BCF    09.1
+04DA:  BCF    09.2
+04DB:  BCF    09.3
+.................... 
+.................... while(true)
+.................... {
+.................... 
+....................     switch (count) 
+04DC:  BCF    03.5
+04DD:  MOVF   38,W
+04DE:  XORLW  01
+04DF:  BTFSC  03.2
+04E0:  GOTO   4FD
+04E1:  XORLW  03
+04E2:  BTFSC  03.2
+04E3:  GOTO   4FF
+04E4:  XORLW  01
+04E5:  BTFSC  03.2
+04E6:  GOTO   501
+04E7:  XORLW  07
+04E8:  BTFSC  03.2
+04E9:  GOTO   503
+04EA:  XORLW  01
+04EB:  BTFSC  03.2
+04EC:  GOTO   505
+04ED:  XORLW  03
+04EE:  BTFSC  03.2
+04EF:  GOTO   507
+04F0:  XORLW  01
+04F1:  BTFSC  03.2
+04F2:  GOTO   509
+04F3:  XORLW  0F
+04F4:  BTFSC  03.2
+04F5:  GOTO   50B
+04F6:  XORLW  01
+04F7:  BTFSC  03.2
+04F8:  GOTO   50D
+04F9:  XORLW  03
+04FA:  BTFSC  03.2
+04FB:  GOTO   50F
+04FC:  GOTO   510
+....................          {
+....................          case 1:
+....................             choptat();
+04FD:  GOTO   0A4
+....................             break;
+04FE:  GOTO   510
+....................          case 2:
+....................             sangdanpst();
+04FF:  GOTO   120
+....................             break;
+0500:  GOTO   510
+....................          case 3:
+....................             tatdantsp();
+0501:  GOTO   18D
+....................             break;
+0502:  GOTO   510
+....................          case 4:
+....................             sangdantsp();  
+0503:  GOTO   1E7
+....................             break;
+0504:  GOTO   510
+....................          case 5: 
+....................             tatdanpst();    
+0505:  GOTO   24D
+....................             break;
+0506:  GOTO   510
+....................          case 6:
+....................             sangdichpst(); 
+0507:  GOTO   2A7
+....................             break;
+0508:  GOTO   510
+....................          case 7:
+....................             sangdichtsp();    
+0509:  GOTO   301
+....................             break;
+050A:  GOTO   510
+....................          case 8:
+....................             sangdich3ledpst();    
+050B:  GOTO   35C
+....................             break;
+050C:  GOTO   510
+....................          case 9:
+....................             sangdich3ledtsp();    
+050D:  GOTO   3B6
+....................             break;
+050E:  GOTO   510
+....................          case 10:
+....................             sangdontsp();    
+050F:  GOTO   410
+....................             break;
+....................     default:
+....................         // default statements
+....................          }
+0510:  GOTO   4DD
+....................    
+.................... }
+....................    
+.................... }
+0511:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT
