@@ -1,0 +1,27 @@
+#include<16f887.h>
+#fuses hs
+#use delay(clock=20M)
+#define lcd_rs       pin_c5
+#define lcd_rw       pin_c6
+#define lcd_e        pin_c7
+#define output_lcd   output_d
+#include<TV_LCD.c>
+unsigned int16 sp;
+
+void main()
+{
+set_tris_a(0xff);
+set_tris_c(0);
+set_tris_d(0);
+lcd_setup();
+setup_timer_0(T0_EXT_H_TO_L|T0_DIV_1);
+set_timer0(0); 
+
+      while(true)
+      {
+      if(sp>24) set_timer0(1); // Kh?ng ch? gi?i h?n d?m
+       sp= get_timer0(); 
+      lcd_command(0x80);
+      printf(lcd_data,"SAN PHAM: %lu",sp);
+      }
+}

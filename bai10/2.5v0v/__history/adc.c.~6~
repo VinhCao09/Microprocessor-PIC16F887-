@@ -1,0 +1,120 @@
+#include<16f887.h>
+#device ADC=10
+#fuses hs
+#use delay(clock=20M)
+#define lcd_rs       pin_c5
+#define lcd_rw       pin_c6
+#define lcd_e        pin_c7
+#define output_lcd   output_d
+#include<TV_LCD.c>
+#bit TM1IF =0x0c.0 
+signed int16 sp,kq,tong=0,n=0;
+unsigned int8 bdn1=0,gio=0,phut=0,giay=0;
+unsigned int1 mode=0;
+void NUTNHAN()
+{
+   if(input(pin_a1)==0)
+   {  delay_ms(20);
+      if(input(pin_a1)==0)
+      {
+      mode=!mode;
+      while(input(pin_a1)==0);
+      }
+   }
+   
+}
+void HIENTHICHEDO()
+{
+lcd_command(0xd4);
+if(mode==0) printf(lcd_data,"DO BINH THUONG");
+if(mode==1) printf(lcd_data,"DO TRUNG BINH  ");
+}
+void DEMSP()
+{
+ if(sp>24) set_timer0(1); // Kh?ng ch? gi?i h?n d?m
+       sp= get_timer0(); 
+      lcd_command(0x80);
+      printf(lcd_data,"SAN PHAM: %lu  ",sp);
+}
+void TIME()
+{
+    if(TM1IF) 
+             { set_timer1(3036);
+             bdn1++;TM1IF=0; 
+             if(bdn1==10) 
+                {
+                bdn1=0; 
+                  giay++;
+                  if(giay==60)
+                     {
+                     phut++;
+                        if(phut==60)
+                        {
+                        gio++;
+                        if(gio==24) gio=0;
+                        }
+                     }
+                }
+             }
+             lcd_command(0xc0);
+             lcd_data("TIME: ");
+             lcd_data(gio/10%10+0x30);
+             lcd_data(gio/1%10+0x30);
+             lcd_data(':');
+             lcd_data(phut/10%10+0x30);
+             lcd_data(phut/1%10+0x30);
+             lcd_data(':');
+             lcd_data(giay/10%10+0x30);
+             lcd_data(giay/1%10+0x30);
+}
+void DONHIETDO()
+{
+   if (mode==0)
+      {
+      kq=read_adc()/4.092;
+      lcd_command(0x94);
+      printf(lcd_data,"NHIET DO: %lu  ", kq);
+      lcd_data(0xDF);
+      lcd_data('C');
+      lcd_data("  ");
+      }
+      if (mode==1)
+      {
+         tong=tong+read_adc()/4.092;
+         n++;
+         if(n>=100)
+         {
+         kq=tong/100;
+         tong=0;
+         n=0;
+         }
+      lcd_command(0x94);
+      printf(lcd_data,"NHIET DO: %ld  ", kq);
+      lcd_data(0xDF);
+      lcd_data('C');
+      lcd_data("  ");
+      }
+}
+
+void main()
+{
+set_tris_a(0xff);
+set_tris_c(0);
+set_tris_d(0);
+lcd_setup();
+setup_timer_0(T0_EXT_H_TO_L|T0_DIV_1);
+set_timer0(0); 
+setup_timer_1(T1_internal|T1_DIV_BY_8);
+set_timer1(3036);
+setup_adc(ADC_CLOCK_DIV_32);
+setup_adc_ports(sAN0|vss_vref);
+set_adc_channel(0);
+      while(true)
+      {
+      DEMSP();
+      TIME();
+      NUTNHAN();
+      HIENTHICHEDO();
+      DONHIETDO(); 
+      }
+}

@@ -1,0 +1,161 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+00C.0   TM1IF
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-022 sp
+023-024 kq
+025-026 tong
+027-028 n
+029     bdn1
+02A     gio
+02B     phut
+02C     giay
+02D.0   mode
+02E-02F @sprintf_string
+030-031 @PRINTF_LD_710.P1
+030     @PSTRINGCN7_710.P2
+030-031 @DIVS1616.P3
+030     lcd_command.a
+030-031 @PRINTF_LU_710.P1
+030     NUTNHAN.@SCRATCH1
+030     HIENTHICHEDO.@SCRATCH1
+030     @PSTRINGC7_710.@SCRATCH1
+030     time.@SCRATCH1
+030     DONHIETDO.@SCRATCH1
+031     @DIV88.P1
+031     @PSTRINGC7_710.@SCRATCH2
+031     @PSTRINGCN7_710.@SCRATCH1
+031     DONHIETDO.@SCRATCH2
+032-033 @DIVS1616.P1
+032-035 @DIVFF.P2
+032-033 @ITOF.P3
+032     @DIV88.P4
+032     @PSTRINGC7_710.@SCRATCH3
+032     @PSTRINGCN7_710.@SCRATCH2
+032     @PRINTF_LU_710.@SCRATCH1
+032     DONHIETDO.@SCRATCH3
+032     @PRINTF_LD_710.@SCRATCH1
+033     @PSTRINGC7_710.@SCRATCH4
+033     @PSTRINGCN7_710.@SCRATCH3
+033     @PRINTF_LU_710.@SCRATCH2
+033     @DIV88.@SCRATCH1
+033     DONHIETDO.@SCRATCH4
+033     @PRINTF_LD_710.@SCRATCH2
+034-037 @SFTOI.P1
+034-037 @ADDFF.P2
+034-035 @SITOF.P3
+034     @PSTRINGCN7_710.@SCRATCH4
+034     @PRINTF_LU_710.@SCRATCH3
+034     @DIVS1616.@SCRATCH1
+034     @PRINTF_LD_710.@SCRATCH3
+035     @PRINTF_LU_710.@SCRATCH4
+035     @DIVS1616.@SCRATCH2
+035     @PRINTF_LD_710.@SCRATCH4
+036-039 @DIVFF.P1
+036     @PRINTF_LU_710.@SCRATCH5
+036     @PRINTF_LD_710.@SCRATCH5
+037     @PRINTF_LU_710.@SCRATCH6
+037     @PRINTF_LD_710.@SCRATCH6
+038-03B @ADDFF.P1
+038     @PRINTF_LU_710.@SCRATCH7
+038     @PRINTF_LD_710.@SCRATCH7
+039     lcd_data.a
+03A     @delay_ms1.P1
+03A     @DIVFF.@SCRATCH1
+03B     @DIVFF.@SCRATCH2
+03C     @DIVFF.@SCRATCH3
+03C     @ADDFF.@SCRATCH1
+03D     @DIVFF.@SCRATCH4
+03D     @ADDFF.@SCRATCH2
+03E     @DIVFF.@SCRATCH5
+03E     @ADDFF.@SCRATCH3
+03F     @DIVFF.@SCRATCH6
+03F     @ADDFF.@SCRATCH4
+040     @ADDFF.@SCRATCH5
+041     @ADDFF.@SCRATCH6
+042     @ADDFF.@SCRATCH7
+043     @ADDFF.@SCRATCH8
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const725.call
+00000C  @const730.call
+000014  @const732.call
+00001C  @const738.call
+000020  @const750.call
+000028  @const751.call
+00002A  @const760.call
+000032  @const763.call
+000034  @delay_ms1
+000048  lcd_command
+000069  lcd_setup
+00007B  lcd_data
+00009C  @PSTRINGCN7_710
+0000F3  @PRINTF_LU_710
+000156  DEMSP
+000183  @PSTRINGC7_710
+0001D9  @DIV88
+0001EE  time
+00026A  NUTNHAN
+000281  HIENTHICHEDO
+000299  @ITOF
+0002B6  @DIVFF
+000380  @SFTOI
+00039F  DONHIETDO
+000429  @SITOF
+00045E  @ADDFF
+0005BE  @DIVS1616
+000616  @PRINTF_LD_710
+0006AB  @cinit1
+0006AB  MAIN
+0006CA  @cinit2
+
+Project Directory:
+    D:\processor\bai10\2.5v0v\
+
+Project Files:
+    adc.c                                                   [21-Apr-23 22:45  CRC=0009D1F2]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [21-Jan-21 11:32  CRC=461DBE83]
+    TV_LCD.c                                                [18-Mar-23 22:35  CRC=C41C3692]
+
+Source signature=CE5FFD99
+Program memory checksum=0000
+Hex file CRC=8CC5
+
+Units:
+    D:\processor\bai10\2.5v0v\adc (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   adc.xsym
+    Errors:      adc.err
+    Ext Symbols: adc.esym
+    INHX8:       adc.hex
+    Symbols:     adc.sym
+    List:        adc.lst
+    Debug/COFF:  adc.cof
+    Project:     adc.ccspjt
+    Call Tree:   adc.tre
+    Statistics:  adc.STA
