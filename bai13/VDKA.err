@@ -1,0 +1,7 @@
+Compiling D:\processor\bai13\VDKA on 06-May-23 at 16:07
+>>> Warning 202 "D:\processor\bai13\VDKA.c" Line 6(16,19): Variable never used:   kq5
+>>> Warning 202 "D:\processor\bai13\VDKA.c" Line 6(24,26): Variable never used:   kq
+>>> Warning 202 "D:\processor\bai13\VDKA.c" Line 7(23,27): Variable never used:   nhan
+      Memory usage:   ROM=6%      RAM=7% - 10%
+      0 Errors,  3 Warnings.
+Build Successful.

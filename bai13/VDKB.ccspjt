@@ -1,0 +1,70 @@
+[PROJECT]
+Target=VDKB.hex
+Processor_Text=PIC16F887
+CCSVersion=5.101
+Compiler=PCM
+[Target Data]
+FileList=VDKB.c
+[VDKB.c]
+Type=4
+[mru-list]
+1=VDKB.c
+
+[defines]
+buildcount=15
+
+[Opened Files]
+1=VDKA.c
+t1=1
+2=VDKB.c
+t2=1
+Count=2
+
+[ProjectLog]
+Days=4
+D1=06-05-2023
+D1_L=22
+D1_L1=[56838]Stopped Editing.
+TotalEdit=17
+TotalDebug=0
+D1_E=17
+D1_D=0
+D1_L2=[56838]Project Closed.
+D1_L3=[57055]Project Opened.
+D1_L4=[57060]Started Editing.
+D1_L5=[57307]Stopped Editing.
+D1_L6=[57307]Project Closed.
+D1_L7=[57361]Project Opened.
+D1_L8=[57417]Started Editing.
+D1_L9=[57426]Stopped Editing.
+D1_L10=[57426]Project Closed.
+D1_L11=[57479]Project Opened.
+D1_L12=[57485]Started Editing.
+D1_L13=[57518]Stopped Editing.
+D1_L14=[57518]Project Closed.
+D1_L15=[57857]Project Opened.
+D1_L16=[57871]Started Editing.
+D1_L17=[57955]Stopped Editing.
+D1_L18=[57955]Project Closed.
+D1_L19=[58043]Project Opened.
+D1_L20=[58062]Started Editing.
+D1_L21=[58146]Stopped Editing.
+D1_L22=[58146]Project Closed.
+D2=07-05-2023
+D2_L=4
+D2_L1=[43530]Project Opened.
+D2_L2=[43531]Project Closed.
+D2_L3=[43532]Project Opened.
+D2_L4=[43579]Project Closed.
+D3=25-05-2023
+D3_L=1
+D3_L1=[61159]Project Opened.
+D4=13-06-2023
+D4_L=1
+D4_L1=[56914]Project Opened.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=VDKB (main)

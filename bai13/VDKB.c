@@ -1,0 +1,86 @@
+#include<16f887.h>
+#fuses hs
+#use delay(clock=20M)
+#use rs232(baud=9600,xmit=pin_c6,rcv=pin_c7)
+#define lcd_rs          pin_e2
+#define lcd_rw          pin_e1
+#define lcd_e           pin_e0
+#define output_lcd      output_d
+#include<TV_LCD.c>
+#include<TV_KEY4x4.c>
+unsigned int16 mp,tt=0;
+unsigned int8  kq5,kq7,dv,chuc,kq;
+#INT_RDA
+void ngatuart()
+{
+   kq=getc();
+}
+
+void checkphim()
+{
+mp=key_4x4();
+if(mp==5) tt=5;
+if(mp==7) tt=7;
+if(mp==10) tt=10;
+if(mp==13) tt=13;
+}
+void main()
+{
+
+set_tris_a(0xff);
+set_tris_b(0xff);
+set_tris_c(0x80);
+set_tris_c(0x00);
+lcd_setup();
+enable_interrupts(INT_RDA);
+enable_interrupts(GLOBAL);
+
+
+   while(true)
+   {
+       checkphim();
+      dv=tt%10;
+      chuc=tt/10;
+      putc(chuc);
+      putc(dv);
+//!
+            if(tt==5)
+            {
+               lcd_command(0x80);
+               printf(lcd_data,"Nhiet do K5: %u ",kq5);
+               lcd_command(0xd4);
+                printf(lcd_data,"Phim ban da nhan: %lu ",tt);
+      
+            }
+            if(tt==7)
+            {
+               lcd_command(0x80);
+               printf(lcd_data,"Nhiet do K7: %u ",kq7);
+               lcd_command(0xd4);
+               printf(lcd_data,"Phim ban da nhan: %lu ",tt);
+      
+            }
+            if(tt==10)
+            {
+               lcd_command(0x80);
+               printf(lcd_data,"Nhiet do K5: %u ",kq5);
+               lcd_command(0xc0);
+               printf(lcd_data,"Nhiet do K7: %u ",kq7);
+               lcd_command(0xd4);
+               printf(lcd_data,"Phim ban da nhan: A");
+
+            }
+            if(tt==13)
+            {
+               lcd_command(0x80);
+               printf(lcd_data,"Nhiet do K5:     ");
+               lcd_command(0xc0);
+               printf(lcd_data,"Nhiet do K7:     ");
+               lcd_command(0xd4);
+               printf(lcd_data,"Phim ban da nhan: D");
+
+            }
+      
+//!   
+   }
+}

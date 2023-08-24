@@ -1,0 +1,74 @@
+
+ROM used:   1071/8192 (13%)
+            1071/8192 (13%) including unused fragments
+
+            1.1 Average locations per line
+            13.2 Average locations per statement
+
+RAM used:   28/368 (8%) at main() level
+            39/368 (11%) worst case
+
+Stack used: 4 worst case (3 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   87    52  64  VDKB.c
+  809     0   0  C:\Program Files (x86)\PICC\Devices\16f887.h
+   25    17  21  TV_LCD.c
+   15    12  15  TV_KEY4x4.c
+----- -----
+  936    81 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20   2    1             @delay_ms1
+0     25   2    1    119  1.3  lcd_command
+0     25   2    1    119  1.3  lcd_data
+0     18   2    0     86  1.3  lcd_setup
+0      8   1    0             @const717
+ Inline         3    628  7.0  key_4x4
+0      8   1    0     20  1.3  ngatuart
+0    118  11    0    202  2.7  checkphim
+0    287  27    0   1281  4.8  MAIN
+0     37   3    5             @DIV1616
+0      9   1    0             @const737
+0     87   8    5             @PSTRINGCN7_712
+0     21   2    3             @DIV88
+0     53   5    2             @PRINTF_U_712
+0     12   1    0             @const746
+0     99   9    9             @PRINTF_LU_712
+0      9   1    0             @const749
+0     12   1    0             @const750
+0      9   1    0             @const751
+0      9   1    0             @const752
+0     10   1    0             @const753
+0     86   8    4             @PSTRINGC7_712
+0      9   1    0             @const758
+0      9   1    0             @const759
+0     10   1    0             @const760
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               7
+    Statements              81
+    Comments                137
+    Volume (V)              3433
+    Difficulty (D)          18.6
+    Effort to implement (E) 63723
+    Time to implement (T)   59 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   9
+    Maintainability (MI)    126
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00050    77  0  
+00051-007FF   990  977  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+
