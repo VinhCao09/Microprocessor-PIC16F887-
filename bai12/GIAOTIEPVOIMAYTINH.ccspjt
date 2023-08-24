@@ -1,0 +1,69 @@
+[PROJECT]
+Target=GIAOTIEPVOIMAYTINH.hex
+Processor_Text=PIC16F887
+CCSVersion=5.101
+Compiler=PCM
+[Target Data]
+FileList=GIAOTIEPVOIMAYTINH.c
+[GIAOTIEPVOIMAYTINH.c]
+Type=4
+[mru-list]
+1=GIAOTIEPVOIMAYTINH.c
+
+[defines]
+buildcount=8
+
+[Opened Files]
+1=..\bai13\VDKA.c
+t1=1
+Count=2
+2=..\bai13\VDKB.c
+t2=1
+
+[ProjectLog]
+Days=6
+D1=06-05-2023
+D1_L=5
+D1_L1=[55557]Stopped Editing.
+TotalEdit=15
+TotalDebug=0
+D1_E=14
+D1_D=0
+D1_L2=[55557]Project Closed.
+D1_L3=[56022]Project Opened.
+D1_L4=[56059]Started Editing.
+D1_L5=[56510]Project Closed.
+D2=10-05-2023
+D2_L=2
+D2_L1=[81049]Project Opened.
+D2_L2=[84327]Project Closed.
+D3=16-05-2023
+D3_L=2
+D3_L1=[71318]Project Opened.
+D3_L2=[71675]Project Closed.
+D4=19-05-2023
+D4_L=2
+D4_L1=[61120]Project Opened.
+D4_L2=[61139]Project Closed.
+D5=29-05-2023
+D5_L=2
+D5_L1=[42481]Project Opened.
+D5_L2=[42574]Project Closed.
+D6=13-06-2023
+D6_L=8
+D6_L1=[36872]Project Opened.
+D6_L2=[37996]Started Editing.
+D6_L3=[37999]Stopped Editing.
+D6_E=1
+D6_D=0
+D6_L4=[37999]Project Closed.
+D6_L5=[38010]Project Opened.
+D6_L6=[38035]Project Closed.
+D6_L7=[53476]Project Opened.
+D6_L8=[55332]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=GIAOTIEPVOIMAYTINH (main)
