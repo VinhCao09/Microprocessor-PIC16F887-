@@ -1,0 +1,134 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+00C.0   TM1IF
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     T0
+021     GHD
+022     dem
+023     mp
+024     SAVE
+025     chuc
+026     dv
+027     d
+028     a
+029     NS
+02A     Nang_Suat
+02B     TRAN
+02C-02D bdn1
+02E     giay
+02F     phut
+030     gio
+031     @TRIS_C
+032-033 @sprintf_string
+034     @PSTRINGCN7_709.P1
+034     @PRINTF_D_709.P2
+034     lcd_command.a
+034     key_4x4.mp
+034     @MUL88.P1
+034     xuatma7doan.@SCRATCH1
+034     KIEMTRABANPHIM.@SCRATCH1
+034     @PSTRINGC7_709.@SCRATCH1
+035     key_4x4.cot
+035     @MUL88.P1
+035     @PRINTF_D_709.P2
+035     @PSTRINGCN7_709.@SCRATCH1
+035     @PSTRINGC7_709.@SCRATCH2
+036     key_4x4.@SCRATCH1
+036     @PSTRINGCN7_709.@SCRATCH2
+036     @PRINTF_D_709.@SCRATCH1
+036     @PSTRINGC7_709.@SCRATCH3
+037     @PSTRINGCN7_709.@SCRATCH3
+037     @PRINTF_D_709.@SCRATCH2
+037     @PSTRINGC7_709.@SCRATCH4
+038     @PSTRINGCN7_709.@SCRATCH4
+038     @PRINTF_D_709.@SCRATCH3
+039     @PRINTF_D_709.@SCRATCH4
+03A     @DIV88.P1
+03A     lcd_data.a
+03B     @delay_ms1.P1
+03B     @DIV88.P2
+03C     @DIV88.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  maquet.call
+000008  maquet.data
+00000C  ma7doan.call
+000010  ma7doan.data
+00001A  @const748.call
+000023  @const754.call
+00002C  @const755.call
+000035  @const756.call
+00003E  @const757.call
+000043  @const758.call
+00004C  @const759.call
+000055  @const760.call
+000059  @const766.call
+000062  @const770.call
+000068  @delay_ms1
+00007C  lcd_command
+000092  lcd_setup
+0000A4  @MUL88
+0000C9  lcd_data
+0000DF  @PSTRINGCN7_709
+000136  @DIV88
+00014B  @PRINTF_D_709
+0001A2  thoigian
+0001F4  xuatma7doan
+0002CA  key_4x4
+000313  KIEMTRABANPHIM
+000313  DEMSP
+0004C4  @PSTRINGC7_709
+00051B  MAIN
+00051B  @cinit1
+000541  @cinit2
+
+Project Directory:
+    D:\processor\bai9\
+
+Project Files:
+    Bai9.c                                                  [03-Apr-23 22:05  CRC=03A87166]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [21-Jan-21 11:32  CRC=461DBE83]
+    TV_LCD.c                                                [18-Mar-23 22:35  CRC=C41C3692]
+    TV_KEY4X4.c                                             [01-Apr-23 11:35  CRC=98E4238B]
+
+Source signature=3FAAAD91
+Program memory checksum=0000
+Hex file CRC=55F2
+
+Units:
+    D:\processor\bai9\Bai9 (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   Bai9.xsym
+    Errors:      Bai9.err
+    Ext Symbols: Bai9.esym
+    INHX8:       Bai9.hex
+    Symbols:     Bai9.sym
+    List:        Bai9.lst
+    Debug/COFF:  Bai9.cof
+    Project:     Bai9.ccspjt
+    Call Tree:   Bai9.tre
+    Statistics:  Bai9.STA

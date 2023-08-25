@@ -1,0 +1,66 @@
+[PROJECT]
+Target=Bai9.hex
+Processor_Text=PIC16F887
+CCSVersion=5.101
+Compiler=PCM
+[Target Data]
+FileList=Bai9.c
+[Bai9.c]
+Type=4
+[mru-list]
+1=Bai9.c
+
+[defines]
+buildcount=30
+
+[Opened Files]
+1=Bai9.c
+t1=92
+Count=2
+2=..\bai5\led7doantructiep.c
+t2=92
+
+[ProjectLog]
+Days=6
+D1=03-04-2023
+D1_L=2
+D1_L1=[79744]Stopped Editing.
+TotalEdit=71
+TotalDebug=0
+D1_E=69
+D1_D=0
+D1_L2=[79744]Project Closed.
+D2=06-04-2023
+D2_L=8
+D2_L1=[55426]Project Opened.
+D2_L2=[56446]Started Editing.
+D2_L3=[56511]Stopped Editing.
+D2_E=2
+D2_D=0
+D2_L4=[56511]Project Closed.
+D2_L5=[66201]Project Opened.
+D2_L6=[68470]Project Closed.
+D2_L7=[81494]Project Opened.
+D2_L8=[82195]Project Closed.
+D3=13-04-2023
+D3_L=2
+D3_L1=[36279]Project Opened.
+D3_L2=[36617]Project Closed.
+D4=15-04-2023
+D4_L=2
+D4_L1=[40094]Project Opened.
+D4_L2=[40233]Project Closed.
+D5=13-06-2023
+D5_L=2
+D5_L1=[49906]Project Opened.
+D5_L2=[49914]Project Closed.
+D6=22-08-2023
+D6_L=2
+D6_L1=[64138]Project Opened.
+D6_L2=[64147]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=Bai9 (main)
