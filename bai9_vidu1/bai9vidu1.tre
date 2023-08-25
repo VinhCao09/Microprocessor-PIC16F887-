@@ -1,0 +1,145 @@
+ÀÄbai9vidu1
+   ÀÄMAIN  0/63  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄlcd_setup  0/18  Ram=0
+      ³  ÃÄlcd_command  0/33  Ram=1
+      ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄlcd_command  0/33  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄlcd_command  0/33  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄ@goto63941  0/8  Ram=0
+      ÃÄSANGDAN  0/63  Ram=2
+      ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄCHECKSPEED  0/177  Ram=0
+      ³  ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ³  ÀÄ*
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄXULYNUTNHAN  0/50  Ram=1
+      ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄXUATMA7DOAN  0/82  Ram=3
+      ³  ³  ÃÄ@DIVS1616  (Inline)  Ram=6
+      ³  ³  ÀÄ@const720  0/14  Ram=0
+      ³  ÀÄHIENTHILCD  0/158  Ram=0
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÃÄlcd_data  0/33  Ram=1
+      ³     ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ³     ³  ÀÄlcd_data  0/33  Ram=1
+      ³     ³     ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_data  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_data  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_data  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÃÄ@PSTRINGC7_710  0/86  Ram=4
+      ³     ³  ÀÄ*
+      ³     ÃÄlcd_command  0/33  Ram=1
+      ³     ³  ÀÄ*
+      ³     ÀÄlcd_data  0/33  Ram=1
+      ³        ÀÄ*
+      ÃÄTATDAN  0/62  Ram=2
+      ³  ÃÄXULYNUTNHAN  0/50  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄCHECKSPEED  0/177  Ram=0
+      ³  ³  ÀÄ*
+      ³  ÃÄXUATMA7DOAN  0/82  Ram=3
+      ³  ³  ÀÄ*
+      ³  ÀÄHIENTHILCD  0/158  Ram=0
+      ³     ÀÄ*
+      ÃÄSANGDICH  0/61  Ram=2
+      ³  ÃÄXULYNUTNHAN  0/50  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄTOCDO  0/31  Ram=1
+      ³  ³  ÀÄ*
+      ³  ÃÄCHECKSPEED  0/177  Ram=0
+      ³  ³  ÀÄ*
+      ³  ÃÄXUATMA7DOAN  0/82  Ram=3
+      ³  ³  ÀÄ*
+      ³  ÀÄHIENTHILCD  0/158  Ram=0
+      ³     ÀÄ*
+      ÀÄTATDICH  0/63  Ram=2
+         ÃÄXULYNUTNHAN  0/50  Ram=1
+         ³  ÀÄ*
+         ÃÄTOCDO  0/31  Ram=1
+         ³  ÀÄ*
+         ÃÄCHECKSPEED  0/177  Ram=0
+         ³  ÀÄ*
+         ÃÄXUATMA7DOAN  0/82  Ram=3
+         ³  ÀÄ*
+         ÀÄHIENTHILCD  0/158  Ram=0
+            ÀÄ*

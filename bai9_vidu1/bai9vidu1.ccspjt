@@ -1,0 +1,74 @@
+[PROJECT]
+Target=bai9vidu1.hex
+Processor_Text=PIC16F887
+CCSVersion=5.101
+Compiler=PCM
+[Target Data]
+FileList=bai9vidu1.c
+[bai9vidu1.c]
+Type=4
+[mru-list]
+1=bai9vidu1.c
+
+[defines]
+buildcount=117
+
+[Opened Files]
+1=bai9vidu1.c
+t1=69
+2=..\Bai2\leddon.c
+t2=21
+Count=1
+3=TV_LCD.c
+t3=1
+
+[ProjectLog]
+Days=4
+D1=04-04-2023
+D1_L=10
+D1_L1=[62796]Stopped Editing.
+TotalEdit=174
+TotalDebug=0
+D1_E=95
+D1_D=0
+D1_L2=[63169]Project Closed.
+D1_L3=[63245]Project Opened.
+D1_L4=[63254]Started Editing.
+D1_L5=[64516]Stopped Editing.
+D1_L6=[64516]Project Closed.
+D1_L7=[65650]Project Opened.
+D1_L8=[65683]Started Editing.
+D1_L9=[66159]Stopped Editing.
+D1_L10=[66159]Project Closed.
+D2=06-04-2023
+D2_L=12
+D2_L1=[68487]Project Opened.
+D2_L2=[68561]Started Editing.
+D2_L3=[73161]Stopped Editing.
+D2_E=79
+D2_D=0
+D2_L4=[73161]Project Closed.
+D2_L5=[81137]Project Opened.
+D2_L6=[81477]Project Closed.
+D2_L7=[82257]Project Opened.
+D2_L8=[83172]Project Closed.
+D2_L9=[84882]Project Opened.
+D2_L10=[84975]Started Editing.
+D2_L11=[85377]Stopped Editing.
+D2_L12=[86142]Project Closed.
+D3=07-04-2023
+D3_L=2
+D3_L1=[1853]Project Opened.
+D3_L2=[1912]Project Closed.
+D4=13-06-2023
+D4_L=4
+D4_L1=[49556]Project Opened.
+D4_L2=[49803]Project Closed.
+D4_L3=[49925]Project Opened.
+D4_L4=[49985]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=bai9vidu1 (main)

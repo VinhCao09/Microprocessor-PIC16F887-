@@ -1,0 +1,100 @@
+#INCLUDE<16F887.H>
+#FUSES INTRC_IO
+#USE DELAY(CLOCK=8M)
+#define     lcd_e       pin_c7
+#define     lcd_rw      pin_c6
+#define     lcd_rs      pin_c5
+#define     output_lcd  output_d
+#INCLUDE<TV_LCD.C>
+
+SIGNED INT16 i,y;
+SIGNED INT8 che_do=0;
+VOID XULYNUTNHAN()
+{
+IF (INPUT(PIN_E2)==0)
+      {DELAY_MS(20);
+         IF (INPUT(PIN_E2)==0)
+            {  che_do++;
+               while(INPUT(PIN_E2)==0);
+               if (che_do==4) che_do=0;
+            }
+       }
+ELSE IF (INPUT(PIN_E1)==0)
+      {DELAY_MS(20);
+         IF (INPUT(PIN_E1)==0)
+            {  che_do--;
+               while(INPUT(PIN_E1)==0);
+               if (che_do==-1) che_do=3;
+            }
+       }       
+       
+
+VOID SANGDAN()
+{
+   FOR(i=0;i<13;i++)
+         {
+            Y=~(0XFFF<<i);
+            OUTPUT_A(Y);
+            OUTPUT_C(Y>>8&0x0f);
+            DELAY_MS(200);
+            XULYNUTNHAN();
+     
+   }
+}
+VOID TATDAN()
+{
+         FOR(i=0;i<13;i++)
+         {
+            Y=0XFFF<<i;
+            OUTPUT_A(Y);
+            OUTPUT_C(Y>>8&0x0f);
+            DELAY_MS(200);
+            XULYNUTNHAN();
+           
+         }
+}
+VOID SANGDICH()
+{
+   FOR(i=0;i<13;i++)
+   {
+      Y=0X001<<i;
+      OUTPUT_A(Y);
+      OUTPUT_C((Y>>8)&0X0F);
+      DELAY_MS(200); 
+      XULYNUTNHAN();
+    
+   }
+}
+VOID TATDICH()
+{
+   FOR(i=0;i<13;i++)
+   {
+      Y=~(0X001<<i);
+      OUTPUT_A(Y);
+      OUTPUT_C((Y>>8)&0X0F);
+      DELAY_MS(200);
+      XULYNUTNHAN();
+
+   }
+}
+
+
+VOID MAIN()
+{
+   SET_TRIS_A(0);
+   SET_TRIS_C(0);
+   SET_TRIS_B(0);
+   SET_TRIS_D(0);
+   SET_TRIS_E(0XFF);
+
+   
+   WHILE(TRUE)
+   { 
+   SWITCH (CHE_DO)
+      { case 0: sangdan(); break;
+         case 1: tatdan(); break;
+         case 2: sangdich(); break;
+         case 3: tatdich(); break;
+      }
+}
+
