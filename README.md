@@ -13,8 +13,21 @@ The PIC16F887 is one of the latest products from Microchip. It features all the 
 
 Content: Bàn phím ma trận - Led 7 đoạn - Led 7 đoạn quét - LCD - Timer Counter - Ôn tập - ADC - Intterupts - UART - PWM
 
-## 🚀 About Me
-Xin chào các bạn, mình là Vinh.
+# 💫About Me :
+Hello 👋I am Vinh. I'm studying HCMC University of Technology and Education
+
+**Major:** Electronics and Telecommunication
+
+**Skill:** 
+
+*- Microcontroller:* ESP32/8266 - ARDUINO - PIC - Raspberry Pi - PLC Rockwell Allen Bradley
+
+*- Programming languages:* C/C++/HTML/CSS/PHP/SQL and
+related Frameworks (Bootstrap)
+
+*- Communication Protocols:* SPI, I2C, UART, CAN
+
+*- Data Trasmissions:* HTTP, TCP/IP, MQTT
 
 ## Authors
 
